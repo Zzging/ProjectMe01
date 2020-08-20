@@ -2,6 +2,7 @@
 /* https://aboutreact.com/react-native-login-and-signup/ */
 
 //Import React
+
 import React from 'react';
 
 //Import all required component

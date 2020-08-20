@@ -5,11 +5,14 @@
 import React from 'react';
 
 //Import Navigators from React Navigation
-import {createAppContainer, createSwitchNavigator} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 //Import all the screens needed
 import SplashScreen from './Screen/SplashScreen';
+//import VegetableScreen from './Screen/drawerScreens/VegetableScreen';
+//import FruitScreen from './Screen/drawerScreens/FruitScreen';
+//import GarnishScreen from './Screen/drawerScreens/GarnishScreen';
 import LoginScreen from './Screen/LoginScreen';
 import RegisterScreen from './Screen/RegisterScreen';
 import DrawerNavigationRoutes from './Screen/DrawerNavigationRoutes';
@@ -32,6 +35,37 @@ const Auth = createStackNavigator({
       headerTintColor: '#fff',
     },
   },
+  // VegetableScreen: {
+  //   screen: VegetableScreen,
+  //   navigationOptions: {
+  //     title: 'Vegetable',
+  //     headerStyle: {
+  //       backgroundColor: '#009933',
+  //     },
+  //     headerTintColor: '#fff',
+  //   },
+  // },
+  // FruitScreen: {
+  //   screen: FruitScreen,
+  //   navigationOptions: {
+  //     title: 'Vegetable',
+  //     headerStyle: {
+  //       backgroundColor: '#009933',
+  //     },
+  //     headerTintColor: '#fff',
+  //   },
+  // },
+  // GarnishScreen: {
+  //   screen: GarnishScreen,
+  //   navigationOptions: {
+  //     title: 'Vegetable',
+  //     headerStyle: {
+  //       backgroundColor: '#009933',
+  //     },
+  //     headerTintColor: '#fff',
+  //   },
+  // },
+
 });
 
 /* Switch Navigator for those screens which needs to be switched only once

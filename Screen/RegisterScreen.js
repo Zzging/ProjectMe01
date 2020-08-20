@@ -114,14 +114,14 @@ const RegisterScreen = (props) => {
     <View style={{flex: 1, backgroundColor: '#FFCC00'}}>
       <Loader loading={loading} />
       <ScrollView keyboardShouldPersistTaps="handled">
-        <View style={{backgroundColor: 'red', alignItems: 'center'}}>
+        <View style={{alignItems: 'center'}}>
           <Image
             source={require('../Image/aboutreact.png')}
             style={{
-              // width: '100%',
-              height: 100,
+              width: 300,
+              height: 200,
               // resizeMode: 'contain',
-              margin: 30,
+              margin: 1,
             }}
           />
         </View>
