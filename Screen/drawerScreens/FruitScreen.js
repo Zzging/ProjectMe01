@@ -6,93 +6,8 @@ import {
     Image,
     ScrollView,
     ImageBackgroundComponent,
+    TouchableOpacity,
 } from 'react-native';
-
-export default class FruitScreen extends Component {
-    render() {
-        return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <View style={styles.headerContent}>
-                            <Image
-                                source={require('../../Image/003.jpg')}
-                                style={{
-                                    width: 400,
-                                    height: 300,
-                                    //resizeMode: 'contain',
-                                    margin: 0,
-                                }}
-                            />
-                            <Text style={styles.name}>ประเภทผลไม้</Text>
-                        </View>
-                    </View>
-                    <Text style={styles.info}>ร้านค้าทั้งหมด</Text>
-
-                    <View style={styles.body}>
-                        <View style={styles.bodyContent}>
-                            <View style={{ padding: 10 }}>
-                                <Image
-                                    source={require('../../Image/003_1.jpg')}
-                                    style={{
-                                        width: 400,
-                                        height: 200,
-                                        resizeMode: 'contain',
-                                        margin: 2,
-                                    }}
-                                />
-                                <Text style={styles.info}>พี่ชมพู่-ตลาดสดท่าศาลา</Text>
-                                <Text style={styles.position}>
-                                    (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={styles.body}>
-                        <View style={styles.bodyContent}>
-                            <View style={{ padding: 10 }}>
-                                <Image
-                                    source={require('../../Image/003_2.jpg')}
-                                    style={{
-                                        width: 400,
-                                        height: 200,
-                                        resizeMode: 'contain',
-                                        margin: 2,
-                                    }}
-                                />
-                                <Text style={styles.info}>พี่เชอรี่-ตลาดสดท่าศาลา</Text>
-                                <Text style={styles.position}>
-                                    (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={styles.body}>
-                        <View style={styles.bodyContent}>
-                            <View style={{ padding: 10 }}>
-                                <Image
-                                    source={require('../../Image/003_4.jpg')}
-                                    style={{
-                                        width: 400,
-                                        height: 200,
-                                        resizeMode: 'contain',
-                                        margin: 2,
-                                    }}
-                                />
-                                <Text style={styles.info}>พี่เขียว-ตลาดสดท่าศาลา</Text>
-                                <Text style={styles.position}>
-                                    (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-                </View>
-            </ScrollView>
-        );
-    }
-}
 
 const styles = StyleSheet.create({
     header: {
@@ -158,3 +73,101 @@ const styles = StyleSheet.create({
         color: '#D35400',
     },
 });
+
+
+const FruitScreen = ({ navigation }) => (
+    <ScrollView>
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <View style={styles.headerContent}>
+                    <Image
+                        source={require('../../Image/003.jpg')}
+                        style={{
+                            width: 400,
+                            height: 300,
+                            //resizeMode: 'contain',
+                            margin: 0,
+                        }}
+                    />
+                    <Text style={styles.name}>ประเภทผลไม้</Text>
+                </View>
+            </View>
+            <Text style={styles.info}>ร้านค้าทั้งหมด</Text>
+
+            <View style={styles.body}>
+                <View style={styles.bodyContent}>
+                    <View style={{ padding: 10 }}>
+                        <TouchableOpacity
+                            style={styles.boxDevice}
+                            onPress={() => navigation.navigate('MenuFruit_01')}>
+                            <Image
+                                source={require('../../Image/003_1.jpg')}
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    resizeMode: 'contain',
+                                    margin: 2,
+                                }}
+                            />
+                            <Text style={styles.info}>พี่ชมพู่-ตลาดสดท่าศาลา</Text>
+                            <Text style={styles.position}>
+                                (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                                    </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
+            <View style={styles.body}>
+                <View style={styles.bodyContent}>
+                    <View style={{ padding: 10 }}>
+                        <TouchableOpacity
+                            style={styles.boxDevice}
+                            onPress={() => navigation.navigate('MenuFruit_02')}>
+                            <Image
+                                source={require('../../Image/003_2.jpg')}
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    resizeMode: 'contain',
+                                    margin: 2,
+                                }}
+                            />
+                            <Text style={styles.info}>พี่เชอรี่-ตลาดสดท่าศาลา</Text>
+                            <Text style={styles.position}>
+                                (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                                </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
+            <View style={styles.body}>
+                <View style={styles.bodyContent}>
+                    <View style={{ padding: 10 }}>
+                        <TouchableOpacity
+                            style={styles.boxDevice}
+                            onPress={() => navigation.navigate('MenuFruit_03')}>
+                            <Image
+                                source={require('../../Image/003_4.jpg')}
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    resizeMode: 'contain',
+                                    margin: 2,
+                                }}
+                            />
+                            <Text style={styles.info}>พี่เขียว-ตลาดสดท่าศาลา</Text>
+                            <Text style={styles.position}>
+                                (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                                </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+        </View>
+    </ScrollView>
+
+);
+
+export default FruitScreen;

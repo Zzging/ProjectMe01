@@ -17,6 +17,9 @@ import LoginScreen from './Screen/LoginScreen';
 import RegisterScreen from './Screen/RegisterScreen';
 import DrawerNavigationRoutes from './Screen/DrawerNavigationRoutes';
 
+//MenuOptions
+// import MenuMeat from './Screen/drawerScreens/MenuMeat';
+
 const Auth = createStackNavigator({
   //Stack Navigator for Login and Sign up Screen
   LoginScreen: {
@@ -35,36 +38,6 @@ const Auth = createStackNavigator({
       headerTintColor: '#fff',
     },
   },
-  // VegetableScreen: {
-  //   screen: VegetableScreen,
-  //   navigationOptions: {
-  //     title: 'Vegetable',
-  //     headerStyle: {
-  //       backgroundColor: '#009933',
-  //     },
-  //     headerTintColor: '#fff',
-  //   },
-  // },
-  // FruitScreen: {
-  //   screen: FruitScreen,
-  //   navigationOptions: {
-  //     title: 'Vegetable',
-  //     headerStyle: {
-  //       backgroundColor: '#009933',
-  //     },
-  //     headerTintColor: '#fff',
-  //   },
-  // },
-  // GarnishScreen: {
-  //   screen: GarnishScreen,
-  //   navigationOptions: {
-  //     title: 'Vegetable',
-  //     headerStyle: {
-  //       backgroundColor: '#009933',
-  //     },
-  //     headerTintColor: '#fff',
-  //   },
-  // },
 
 });
 

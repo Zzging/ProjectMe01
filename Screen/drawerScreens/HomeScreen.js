@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button, View, TouchableOpacity, SafeAreaView, Text, Alert } from 'react-native';
+import { ImageBackground, StyleSheet, Button, View, TouchableOpacity, SafeAreaView, Text, Alert } from 'react-native';
 const Separator = () => (
   <View style={styles.separator} />
 );
@@ -15,7 +15,7 @@ const HomeScreen = ({ navigation }) => (
         style={styles.boxDevice}
         onPress={() => navigation.navigate('MeatScreen')}>
         <View style={{ margin: 10 }}>
-          <Text>ประเภทเนื้อสัตว์</Text>
+          <Text style={styles.boxmenu}>ประเภทเนื้อสัตว์</Text>
         </View>
       </TouchableOpacity>
 
@@ -23,7 +23,7 @@ const HomeScreen = ({ navigation }) => (
         style={styles.boxDevice}
         onPress={() => navigation.navigate('VegetableScreen')}>
         <View style={{ margin: 10 }}>
-          <Text>ประเภทผัก</Text>
+          <Text style={styles.boxmenu}>ประเภทผัก</Text>
         </View>
       </TouchableOpacity>
 
@@ -31,7 +31,7 @@ const HomeScreen = ({ navigation }) => (
         style={styles.boxDevice}
         onPress={() => navigation.navigate('FruitScreen')}>
         <View style={{ margin: 10 }}>
-          <Text>ประเภทผลไม้</Text>
+          <Text style={styles.boxmenu}>ประเภทผลไม้</Text>
         </View>
       </TouchableOpacity>
 
@@ -39,7 +39,7 @@ const HomeScreen = ({ navigation }) => (
         style={styles.boxDevice}
         onPress={() => navigation.navigate('GarnishScreen')}>
         <View style={{ margin: 10 }}>
-          <Text>เครื่องปรุง</Text>
+          <Text style={styles.boxmenu}>เครื่องปรุง</Text>
         </View>
       </TouchableOpacity>
 
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     marginHorizontal: 20,
+
     marginTop: 10,
   },
   title: {
@@ -68,12 +69,24 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   boxDevice: {
-    backgroundColor: '#FFCC00',
+    backgroundColor: '#F1C40F',
     width: '100%',
     height: 120,
     marginTop: 10,
     fontSize: 80,
 
+  },
+  boxmenu: {
+    textAlign: 'center',
+    marginTop: 30,
+    fontSize: 30,
+    fontFamily: 'EucrosiaUPC',
+    textTransform: "uppercase"
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
   },
 });
 export default HomeScreen;

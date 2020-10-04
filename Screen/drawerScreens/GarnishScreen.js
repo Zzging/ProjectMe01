@@ -6,93 +6,8 @@ import {
     Image,
     ScrollView,
     ImageBackgroundComponent,
+    TouchableOpacity,
 } from 'react-native';
-
-export default class GarnishScreen extends Component {
-    render() {
-        return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <View style={styles.headerContent}>
-                            <Image
-                                source={require('../../Image/004.jpg')}
-                                style={{
-                                    width: 400,
-                                    height: 300,
-                                    //resizeMode: 'contain',
-                                    margin: 0,
-                                }}
-                            />
-                            <Text style={styles.name}>ประเภทเนื้อสัตว์</Text>
-                        </View>
-                    </View>
-                    <Text style={styles.info}>ร้านค้าทั้งหมด</Text>
-
-                    <View style={styles.body}>
-                        <View style={styles.bodyContent}>
-                            <View style={{ padding: 10 }}>
-                                <Image
-                                    source={require('../../Image/004_1.jpg')}
-                                    style={{
-                                        width: 400,
-                                        height: 200,
-                                        resizeMode: 'contain',
-                                        margin: 2,
-                                    }}
-                                />
-                                <Text style={styles.info}>ป้าชู-ตลาดสดท่าศาลา</Text>
-                                <Text style={styles.position}>
-                                    (เครื่องปรุง) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={styles.body}>
-                        <View style={styles.bodyContent}>
-                            <View style={{ padding: 10 }}>
-                                <Image
-                                    source={require('../../Image/004_2.jpg')}
-                                    style={{
-                                        width: 400,
-                                        height: 200,
-                                        resizeMode: 'contain',
-                                        margin: 2,
-                                    }}
-                                />
-                                <Text style={styles.info}>พี่เชอรี่-ตลาดสดท่าศาลา</Text>
-                                <Text style={styles.position}>
-                                    (เครื่องปรุง) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={styles.body}>
-                        <View style={styles.bodyContent}>
-                            <View style={{ padding: 10 }}>
-                                <Image
-                                    source={require('../../Image/004_3.jpg')}
-                                    style={{
-                                        width: 400,
-                                        height: 200,
-                                        resizeMode: 'contain',
-                                        margin: 2,
-                                    }}
-                                />
-                                <Text style={styles.info}>พี่เขียว-ตลาดสดท่าศาลา</Text>
-                                <Text style={styles.position}>
-                                    (เครื่องปรุง) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-                </View>
-            </ScrollView>
-        );
-    }
-}
 
 const styles = StyleSheet.create({
     header: {
@@ -112,7 +27,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 30,
-        color: '#FFFFFF',
+        color: '#003333',
         fontWeight: '600',
     },
     bodyContent: {
@@ -158,3 +73,106 @@ const styles = StyleSheet.create({
         color: '#D35400',
     },
 });
+
+const GarnishScreen = ({ navigation }) => (
+    <ScrollView>
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <View style={styles.headerContent}>
+                    <Image
+                        source={require('../../Image/004.jpg')}
+                        style={{
+                            width: 400,
+                            height: 300,
+                            //resizeMode: 'contain',
+                            margin: 0,
+                        }}
+                    />
+                    <Text style={styles.name}>ประเภทเนื้อสัตว์</Text>
+                </View>
+            </View>
+
+
+            <Text style={styles.info}>ร้านค้าทั้งหมด</Text>
+
+            <View style={styles.body}>
+                <View style={styles.bodyContent}>
+                    <View style={{ padding: 10 }}>
+
+                        <TouchableOpacity
+                            style={styles.boxDevice}
+                            onPress={() => navigation.navigate('MenuGarnish_01')}>
+                            <Image
+                                source={require('../../Image/004_1.jpg')}
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    resizeMode: 'contain',
+                                    margin: 2,
+                                }}
+                            />
+                            <Text style={styles.info}>พี่ปลา-ตลาดสดท่าศาลา</Text>
+                            <Text style={styles.position}>
+                                (เครื่องปรุง) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                            </Text>
+
+                        </TouchableOpacity>
+
+
+                    </View>
+                </View>
+            </View>
+
+            <View style={styles.body}>
+                <View style={styles.bodyContent}>
+                    <View style={{ padding: 10 }}>
+                        <TouchableOpacity
+                            style={styles.boxDevice}
+                            onPress={() => navigation.navigate('MenuGarnish_02')}>
+                            <Image
+                                source={require('../../Image/004_2.jpg')}
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    resizeMode: 'contain',
+                                    margin: 2,
+                                }}
+                            />
+                            <Text style={styles.info}>พี่ตา-ตลาดสดท่าศาลา</Text>
+                            <Text style={styles.position}>
+                                (เครื่องปรุง) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+          </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
+            <View style={styles.body}>
+                <View style={styles.bodyContent}>
+                    <View style={{ padding: 10 }}>
+                        <TouchableOpacity
+                            style={styles.boxDevice}
+                            onPress={() => navigation.navigate('MenuGarnish_03')}>
+                            <Image
+                                source={require('../../Image/004_3.jpg')}
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    resizeMode: 'contain',
+                                    margin: 2,
+                                }}
+                            />
+                            <Text style={styles.info}>พี่จันทร์-ตลาดสดท่าศาลา</Text>
+                            <Text style={styles.position}>
+                                (เครื่องปรุง) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+        </View>
+    </ScrollView>
+
+);
+
+export default GarnishScreen;

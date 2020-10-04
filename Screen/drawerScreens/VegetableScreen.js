@@ -6,92 +6,8 @@ import {
     Image,
     ScrollView,
     ImageBackgroundComponent,
+    TouchableOpacity,
 } from 'react-native';
-
-export default class VegetableScreen extends Component {
-    render() {
-        return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <View style={styles.headerContent}>
-                            <Image
-                                source={require('../../Image/002.jpg')}
-                                style={{
-                                    width: 400,
-                                    height: 300,
-                                    //resizeMode: 'contain',
-                                    margin: 0,
-                                }}
-                            />
-                            <Text style={styles.name}>ประเภท ผัก</Text>
-                        </View>
-                    </View>
-                    <Text style={styles.info}>ร้านค้าทั้งหมด</Text>
-                    <View style={styles.body}>
-                        <View style={styles.bodyContent}>
-                            <View style={{ padding: 10 }}>
-                                <Image
-                                    source={require('../../Image/002_1.jpg')}
-                                    style={{
-                                        width: 400,
-                                        height: 200,
-                                        resizeMode: 'contain',
-                                        margin: 2,
-                                    }}
-                                />
-                                <Text style={styles.info}>แตง-ตลาดสดท่าศาลา</Text>
-                                <Text style={styles.position}>
-                                    (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={styles.body}>
-                        <View style={styles.bodyContent}>
-                            <View style={{ padding: 10 }}>
-                                <Image
-                                    source={require('../../Image/002_2.jpg')}
-                                    style={{
-                                        width: 400,
-                                        height: 200,
-                                        resizeMode: 'contain',
-                                        margin: 2,
-                                    }}
-                                />
-                                <Text style={styles.info}>พี่เชอรี่-ตลาดสดท่าศาลา</Text>
-                                <Text style={styles.position}>
-                                    (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={styles.body}>
-                        <View style={styles.bodyContent}>
-                            <View style={{ padding: 10 }}>
-                                <Image
-                                    source={require('../../Image/002_3.jpg')}
-                                    style={{
-                                        width: 400,
-                                        height: 200,
-                                        resizeMode: 'contain',
-                                        margin: 2,
-                                    }}
-                                />
-                                <Text style={styles.info}>พี่เขียว-ตลาดสดท่าศาลา</Text>
-                                <Text style={styles.position}>
-                                    (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-                </View>
-            </ScrollView>
-        );
-    }
-}
 
 const styles = StyleSheet.create({
     header: {
@@ -147,7 +63,6 @@ const styles = StyleSheet.create({
     icon: {
         width: 60,
         height: 60,
-        color: '#696969',
     },
     info: {
         fontSize: 24,
@@ -158,3 +73,105 @@ const styles = StyleSheet.create({
         color: '#D35400',
     },
 });
+
+
+const VegetableScreen = ({ navigation }) => (
+    <ScrollView>
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <View style={styles.headerContent}>
+                    <Image
+                        source={require('../../Image/002.jpg')}
+                        style={{
+                            width: 400,
+                            height: 300,
+                            //resizeMode: 'contain',
+                            margin: 0,
+                        }}
+                    />
+                    <Text style={styles.name}>ประเภท ผัก</Text>
+                </View>
+            </View>
+            <Text style={styles.info}>ร้านค้าทั้งหมด</Text>
+
+            <View style={styles.body}>
+                <View style={styles.bodyContent}>
+                    <View style={{ padding: 10 }}>
+
+                        <TouchableOpacity
+                            style={styles.boxDevice}
+                            onPress={() => navigation.navigate('MenuVegetdle_01')}>
+                            <Image
+                                source={require('../../Image/002_1.jpg')}
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    resizeMode: 'contain',
+                                    margin: 2,
+                                }}
+                            />
+                            <Text style={styles.info}>แตง-ตลาดสดท่าศาลา</Text>
+                            <Text style={styles.position}>
+                                (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                                </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
+            <View style={styles.body}>
+                <View style={styles.bodyContent}>
+                    <View style={{ padding: 10 }}>
+
+                        <TouchableOpacity
+                            style={styles.boxDevice}
+                            onPress={() => navigation.navigate('MenuVegetdle_02')}>
+                            <Image
+                                source={require('../../Image/002_2.jpg')}
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    resizeMode: 'contain',
+                                    margin: 2,
+                                }}
+                            />
+                            <Text style={styles.info}>พี่ไก่-ตลาดสดท่าศาลา</Text>
+                            <Text style={styles.position}>
+                                (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                                </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
+            <View style={styles.body}>
+                <View style={styles.bodyContent}>
+                    <View style={{ padding: 10 }}>
+
+                        <TouchableOpacity
+                            style={styles.boxDevice}
+                            onPress={() => navigation.navigate('MenuVegetdle_03')}>
+                            <Image
+                                source={require('../../Image/002_3.jpg')}
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    resizeMode: 'contain',
+                                    margin: 2,
+                                }}
+                            />
+                            <Text style={styles.info}>พี่น้ำ-ตลาดสดท่าศาลา</Text>
+                            <Text style={styles.position}>
+                                (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                                </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
+        </View>
+    </ScrollView>
+
+);
+
+export default VegetableScreen;
