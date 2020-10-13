@@ -2,7 +2,7 @@
 /* https://aboutreact.com/react-native-login-and-signup/ */
 
 //Import React and Hook we needed
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 //Import all required component
 import {
@@ -36,7 +36,7 @@ const LoginScreen = (props) => {
       return;
     }
     setLoading(true);
-    var dataToSend = {user_email: userEmail, user_password: userPassword};
+    var dataToSend = { user_email: userEmail, user_password: userPassword };
     var formBody = [];
     for (var key in dataToSend) {
       var encodedKey = encodeURIComponent(key);
@@ -79,9 +79,9 @@ const LoginScreen = (props) => {
     <View style={styles.mainBody}>
       <Loader loading={loading} />
       <ScrollView keyboardShouldPersistTaps="handled">
-        <View style={{marginTop: 100}}>
+        <View style={{ marginTop: 100 }}>
           <KeyboardAvoidingView enabled>
-            <View style={{alignItems: 'center'}}>
+            <View style={{ alignItems: 'center' }}>
               <Image
                 source={require('../Image/aboutreact.png')}
                 style={{

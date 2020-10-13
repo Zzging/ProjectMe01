@@ -7,11 +7,34 @@ import {
     TouchableOpacity,
     ScrollView,
     SafeAreaView,
+    Checkbox,
     ImageBackgroundComponent,
-    Navigation,
+    FlatList,
 } from 'react-native';
-
+import Hr from '../Components/hr';
+import { CheckBox } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 export default class MenuOptions_01 extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            id_salse: 10,
+        }
+    }
+    componentDidMount() {
+        var api =
+            'http://192.168.43.236/API/get_meat_id.php?id=' +
+            this.state.id_salse;
+        return fetch(api)
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({ data: responseJson });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
     render() {
         return (
             <ScrollView>
@@ -33,8 +56,34 @@ export default class MenuOptions_01 extends Component {
                             <Text style={{ color: '#FF0000' }} >(ส่งวัตถุดิบ 20 นาที)</Text>
                         </View>
                     </View>
-
-
+                    <View style={{ margin: 10 }}>
+                        <Text style={{ fontSize: 30 }}>รายการ</Text>
+                    </View>
+                    <SafeAreaView style={{ flex: 1 }}>
+                        <FlatList
+                            data={this.state.data}
+                            keyExtractor={(item, index) => index.toString()}
+                            renderItem={({ item }) => (
+                                <View style={{ flex: 1, margin: 10, padding: 5 }}>
+                                    <Text style={{ marginLeft: 10, fontSize: 20, marginBottom: 10 }}>{item.Name_goods}</Text>
+                                    <Text style={{ marginLeft: 10, fontSize: 16, marginBottom: 20 }}><Text style={{ fontWeight: "bold" }}> ฿ </Text> {item.Price} บาท / {item.Unit}</Text>
+                                    {/* <View style={{ margin: 10 }}>
+                                        <CheckBox
+                                            center
+                                            title='Click Here to Remove This Item'
+                                            iconRight
+                                            iconType='material'
+                                            checkedIcon='clear'
+                                            uncheckedIcon='add'
+                                            checkedColor='red'
+                                            checked={this.state.checked}
+                                        />
+                                    </View> */}
+                                    <Hr />
+                                </View>
+                            )}
+                        />
+                    </SafeAreaView>
                 </View>
             </ScrollView>
 

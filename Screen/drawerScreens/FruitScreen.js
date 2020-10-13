@@ -7,15 +7,30 @@ import {
     ScrollView,
     ImageBackgroundComponent,
     TouchableOpacity,
+    navigation,
 } from 'react-native';
+import { SliderBox } from "react-native-image-slider-box";
 
 const styles = StyleSheet.create({
-    header: {
-        backgroundColor: '#FFCC00',
+    container: {
+        flex: 1,
+        backgroundColor: '#FFFF66',
     },
+    // mainBody: {
+    //   flex: 1,
+    //   justifyContent: 'center',
+    //   backgroundColor: '#FFFF66',
+    // },
+
+
+    // header: {
+    //   backgroundColor: '#FFCC00',
+    //   // backgroundColor: 'red',
+    // },
     headerContent: {
         padding: 30,
         alignItems: 'center',
+        backgroundColor: '#FFFFCC',
     },
     avatar: {
         width: 300,
@@ -27,8 +42,10 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 30,
-        color: '#FFFFFF',
+        color: '#003333',
         fontWeight: '600',
+        alignSelf: 'center',
+        margin: 10,
     },
     bodyContent: {
         flex: 1,
@@ -74,99 +91,112 @@ const styles = StyleSheet.create({
     },
 });
 
-
 const FruitScreen = ({ navigation }) => (
-    <ScrollView>
+    this.state = {
+        images: [
+            require('../../Image/Fruit1.jpg'),
+            require('../../Image/Fruit2.jpg'),
+            require('../../Image/Fruit3.jpg')
+        ]
+    },
+    < ScrollView >
         <View style={styles.container}>
+
             <View style={styles.header}>
-                <View style={styles.headerContent}>
-                    <Image
-                        source={require('../../Image/003.jpg')}
-                        style={{
-                            width: 400,
-                            height: 300,
-                            //resizeMode: 'contain',
-                            margin: 0,
-                        }}
+                <View>
+                    <SliderBox
+                        autoplay={true}
+                        images={this.state.images}
                     />
-                    <Text style={styles.name}>ประเภทผลไม้</Text>
                 </View>
+                {/* <View style={styles.headerContent}>
+                  <Image
+                    source={require('../../Image/001.jpg')}
+                    style={{
+                      width: 400,
+                      height: 300,
+                      margin: 0,
+                    }}
+                  />
+                </View> */}
+                <Text style={styles.name}>ประเภทผลไม้</Text>
             </View>
-            <Text style={styles.info}>ร้านค้าทั้งหมด</Text>
+        </View>
+        <Text style={styles.info}>ร้านค้าทั้งหมด</Text>
 
-            <View style={styles.body}>
-                <View style={styles.bodyContent}>
-                    <View style={{ padding: 10 }}>
-                        <TouchableOpacity
-                            style={styles.boxDevice}
-                            onPress={() => navigation.navigate('MenuFruit_01')}>
-                            <Image
-                                source={require('../../Image/003_1.jpg')}
-                                style={{
-                                    width: 400,
-                                    height: 200,
-                                    resizeMode: 'contain',
-                                    margin: 2,
-                                }}
-                            />
-                            <Text style={styles.info}>พี่ชมพู่-ตลาดสดท่าศาลา</Text>
-                            <Text style={styles.position}>
-                                (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+        <View style={styles.body}>
+            <View style={styles.bodyContent}>
+                <View style={{ padding: 10 }}>
+                    <TouchableOpacity
+                        style={styles.boxDevice}
+                        onPress={() => navigation.navigate('MenuFruit_01')}>
+                        <Image
+                            source={require('../../Image/003_1.jpg')}
+                            style={{
+                                width: 400,
+                                height: 200,
+                                resizeMode: 'contain',
+                                margin: 2,
+                            }}
+                        />
+                        <Text style={styles.info}>พี่ชมพู่-ตลาดสดท่าศาลา</Text>
+                        <Text style={styles.position}>
+                            (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
                                     </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-
-            <View style={styles.body}>
-                <View style={styles.bodyContent}>
-                    <View style={{ padding: 10 }}>
-                        <TouchableOpacity
-                            style={styles.boxDevice}
-                            onPress={() => navigation.navigate('MenuFruit_02')}>
-                            <Image
-                                source={require('../../Image/003_2.jpg')}
-                                style={{
-                                    width: 400,
-                                    height: 200,
-                                    resizeMode: 'contain',
-                                    margin: 2,
-                                }}
-                            />
-                            <Text style={styles.info}>พี่เชอรี่-ตลาดสดท่าศาลา</Text>
-                            <Text style={styles.position}>
-                                (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-
-            <View style={styles.body}>
-                <View style={styles.bodyContent}>
-                    <View style={{ padding: 10 }}>
-                        <TouchableOpacity
-                            style={styles.boxDevice}
-                            onPress={() => navigation.navigate('MenuFruit_03')}>
-                            <Image
-                                source={require('../../Image/003_4.jpg')}
-                                style={{
-                                    width: 400,
-                                    height: 200,
-                                    resizeMode: 'contain',
-                                    margin: 2,
-                                }}
-                            />
-                            <Text style={styles.info}>พี่เขียว-ตลาดสดท่าศาลา</Text>
-                            <Text style={styles.position}>
-                                (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                        </TouchableOpacity>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
-    </ScrollView>
+
+        <View style={styles.body}>
+            <View style={styles.bodyContent}>
+                <View style={{ padding: 10 }}>
+                    <TouchableOpacity
+                        style={styles.boxDevice}
+                        onPress={() => navigation.navigate('MenuFruit_02')}>
+                        <Image
+                            source={require('../../Image/003_2.jpg')}
+                            style={{
+                                width: 400,
+                                height: 200,
+                                resizeMode: 'contain',
+                                margin: 2,
+                            }}
+                        />
+                        <Text style={styles.info}>พี่เชอรี่-ตลาดสดท่าศาลา</Text>
+                        <Text style={styles.position}>
+                            (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                                </Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </View>
+
+        <View style={styles.body}>
+            <View style={styles.bodyContent}>
+                <View style={{ padding: 10 }}>
+                    <TouchableOpacity
+                        style={styles.boxDevice}
+                        onPress={() => navigation.navigate('MenuFruit_03')}>
+                        <Image
+                            source={require('../../Image/003_4.jpg')}
+                            style={{
+                                width: 400,
+                                height: 200,
+                                resizeMode: 'contain',
+                                margin: 2,
+                            }}
+                        />
+                        <Text style={styles.info}>พี่ส้ม-ตลาดสดท่าศาลา</Text>
+                        <Text style={styles.position}>
+                            (ผลไม้) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                                </Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </View>
+        {/* </View> */}
+    </ScrollView >
 
 );
 

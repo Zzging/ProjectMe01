@@ -7,15 +7,30 @@ import {
     ScrollView,
     ImageBackgroundComponent,
     TouchableOpacity,
+    navigation,
 } from 'react-native';
+import { SliderBox } from "react-native-image-slider-box";
 
 const styles = StyleSheet.create({
-    header: {
-        backgroundColor: '#FFCC00',
+    container: {
+        flex: 1,
+        backgroundColor: '#FFFF66',
     },
+    // mainBody: {
+    //   flex: 1,
+    //   justifyContent: 'center',
+    //   backgroundColor: '#FFFF66',
+    // },
+
+
+    // header: {
+    //   backgroundColor: '#FFCC00',
+    //   // backgroundColor: 'red',
+    // },
     headerContent: {
         padding: 30,
         alignItems: 'center',
+        backgroundColor: '#FFFFCC',
     },
     avatar: {
         width: 300,
@@ -29,6 +44,8 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: '#003333',
         fontWeight: '600',
+        alignSelf: 'center',
+        margin: 10,
     },
     bodyContent: {
         flex: 1,
@@ -74,103 +91,113 @@ const styles = StyleSheet.create({
     },
 });
 
-
 const VegetableScreen = ({ navigation }) => (
-    <ScrollView>
+    this.state = {
+        images: [
+            require('../../Image/Vegetable01.jpg'),
+            require('../../Image/Vegetable02.jpg'),
+            require('../../Image/Vegetable03.jpg')
+        ]
+    },
+    < ScrollView >
         <View style={styles.container}>
+
             <View style={styles.header}>
-                <View style={styles.headerContent}>
-                    <Image
-                        source={require('../../Image/002.jpg')}
-                        style={{
-                            width: 400,
-                            height: 300,
-                            //resizeMode: 'contain',
-                            margin: 0,
-                        }}
+                <View>
+                    <SliderBox
+                        autoplay={true}
+                        images={this.state.images}
                     />
-                    <Text style={styles.name}>ประเภท ผัก</Text>
                 </View>
-            </View>
-            <Text style={styles.info}>ร้านค้าทั้งหมด</Text>
+                {/* <View style={styles.headerContent}>
+                  <Image
+                    source={require('../../Image/001.jpg')}
+                    style={{
+                      width: 400,
+                      height: 300,
+                      margin: 0,
+                    }}
+                  />
+                </View> */}
+                <Text style={styles.info}>ร้านค้าทั้งหมด</Text>
 
-            <View style={styles.body}>
-                <View style={styles.bodyContent}>
-                    <View style={{ padding: 10 }}>
+                <View style={styles.body}>
+                    <View style={styles.bodyContent}>
+                        <View style={{ padding: 10 }}>
 
-                        <TouchableOpacity
-                            style={styles.boxDevice}
-                            onPress={() => navigation.navigate('MenuVegetdle_01')}>
-                            <Image
-                                source={require('../../Image/002_1.jpg')}
-                                style={{
-                                    width: 400,
-                                    height: 200,
-                                    resizeMode: 'contain',
-                                    margin: 2,
-                                }}
-                            />
-                            <Text style={styles.info}>แตง-ตลาดสดท่าศาลา</Text>
-                            <Text style={styles.position}>
-                                (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                            <TouchableOpacity
+                                style={styles.boxDevice}
+                                onPress={() => navigation.navigate('MenuVegetdle_01')}>
+                                <Image
+                                    source={require('../../Image/002_1.jpg')}
+                                    style={{
+                                        width: 400,
+                                        height: 200,
+                                        resizeMode: 'contain',
+                                        margin: 2,
+                                    }}
+                                />
+                                <Text style={styles.info}>แตง-ตลาดสดท่าศาลา</Text>
+                                <Text style={styles.position}>
+                                    (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
                                 </Text>
-                        </TouchableOpacity>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+
+                <View style={styles.body}>
+                    <View style={styles.bodyContent}>
+                        <View style={{ padding: 10 }}>
+
+                            <TouchableOpacity
+                                style={styles.boxDevice}
+                                onPress={() => navigation.navigate('MenuVegetdle_02')}>
+                                <Image
+                                    source={require('../../Image/002_2.jpg')}
+                                    style={{
+                                        width: 400,
+                                        height: 200,
+                                        resizeMode: 'contain',
+                                        margin: 2,
+                                    }}
+                                />
+                                <Text style={styles.info}>พี่ไก่-ตลาดสดท่าศาลา</Text>
+                                <Text style={styles.position}>
+                                    (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+
+                <View style={styles.body}>
+                    <View style={styles.bodyContent}>
+                        <View style={{ padding: 10 }}>
+
+                            <TouchableOpacity
+                                style={styles.boxDevice}
+                                onPress={() => navigation.navigate('MenuVegetdle_03')}>
+                                <Image
+                                    source={require('../../Image/002_3.jpg')}
+                                    style={{
+                                        width: 400,
+                                        height: 200,
+                                        resizeMode: 'contain',
+                                        margin: 2,
+                                    }}
+                                />
+                                <Text style={styles.info}>พี่น้ำ-ตลาดสดท่าศาลา</Text>
+                                <Text style={styles.position}>
+                                    (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </View>
-
-            <View style={styles.body}>
-                <View style={styles.bodyContent}>
-                    <View style={{ padding: 10 }}>
-
-                        <TouchableOpacity
-                            style={styles.boxDevice}
-                            onPress={() => navigation.navigate('MenuVegetdle_02')}>
-                            <Image
-                                source={require('../../Image/002_2.jpg')}
-                                style={{
-                                    width: 400,
-                                    height: 200,
-                                    resizeMode: 'contain',
-                                    margin: 2,
-                                }}
-                            />
-                            <Text style={styles.info}>พี่ไก่-ตลาดสดท่าศาลา</Text>
-                            <Text style={styles.position}>
-                                (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-
-            <View style={styles.body}>
-                <View style={styles.bodyContent}>
-                    <View style={{ padding: 10 }}>
-
-                        <TouchableOpacity
-                            style={styles.boxDevice}
-                            onPress={() => navigation.navigate('MenuVegetdle_03')}>
-                            <Image
-                                source={require('../../Image/002_3.jpg')}
-                                style={{
-                                    width: 400,
-                                    height: 200,
-                                    resizeMode: 'contain',
-                                    margin: 2,
-                                }}
-                            />
-                            <Text style={styles.info}>พี่น้ำ-ตลาดสดท่าศาลา</Text>
-                            <Text style={styles.position}>
-                                (ผัก) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                                </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-
         </View>
-    </ScrollView>
+    </ScrollView >
 
 );
 

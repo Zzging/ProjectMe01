@@ -33,7 +33,8 @@ import MenuVegetdle_03 from './drawerScreens/MenuVegetdle_03';
 import MenuGarnish_01 from './drawerScreens/MenuGarnish_01';
 import MenuGarnish_02 from './drawerScreens/MenuGarnish_02';
 import MenuGarnish_03 from './drawerScreens/MenuGarnish_03';
-
+///////////
+// import PaymentMeat_01 from './drawerScreens/PaymentMeat_01';
 
 
 const FirstActivity_StackNavigator = createStackNavigator({
@@ -285,7 +286,20 @@ const MenuGarnish_03Activity_StackNavigator = createStackNavigator({
   },
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// constPaymentMeat_01Activity_StackNavigator = createStackNavigator({
+//   First: {
+//     screen: PaymentMeat_01,
+//     navigationOptions: ({ navigation }) => ({
+//       title: 'Payment',
+//       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
+//       headerStyle: {
+//         backgroundColor: '#009900',
+//       },
+//       headerTintColor: '#fff',
+//     }),
+//   },
+// });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const DrawerNavigatorRoutes = createDrawerNavigator(
   {
     HomeScreen: {
@@ -405,6 +419,12 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
       },
     },
     ///////*******/
+    // PaymentMeat_01: {
+    //   screen: PaymentMeat_01Activity_StackNavigator,
+    //   navigationOptions: {
+    //     drawerLabel: 'PaymentMeat_01',
+    //   },
+    // },
   },
 
   {

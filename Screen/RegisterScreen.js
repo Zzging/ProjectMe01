@@ -2,7 +2,7 @@
 /* https://aboutreact.com/react-native-login-and-signup/ */
 
 //Import React and Hook we needed
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 //Import all required component
 import {
@@ -19,75 +19,47 @@ import {
 import Loader from './Components/loader';
 
 const RegisterScreen = (props) => {
+
+  this.state = {
+    user: '',
+    password: '',
+    email: '',
+    address: '',
+  }
+
   let [userName, setUserName] = useState('');
   let [userEmail, setUserEmail] = useState('');
-  let [userAge, setUserAge] = useState('');
+  let [userPass, setUserPass] = useState('');
   let [userAddress, setUserAddress] = useState('');
   let [loading, setLoading] = useState(false);
   let [errortext, setErrortext] = useState('');
   let [isRegistraionSuccess, setIsRegistraionSuccess] = useState(false);
 
-  const handleSubmitButton = () => {
-    setErrortext('');
-    if (!userName) {
-      alert('Please fill Name');
-      return;
-    }
-    if (!userEmail) {
-      alert('Please fill Email');
-      return;
-    }
-    if (!userAge) {
-      alert('Please fill Age');
-      return;
-    }
-    if (!userAddress) {
-      alert('Please fill Address');
-      return;
-    }
-    //Show Loader
-    setLoading(true);
-    var dataToSend = {
-      user_name: userName,
-      user_email: userEmail,
-      user_age: userAge,
-      user_address: userAddress,
-    };
-    var formBody = [];
-    for (var key in dataToSend) {
-      var encodedKey = encodeURIComponent(key);
-      var encodedValue = encodeURIComponent(dataToSend[key]);
-      formBody.push(encodedKey + '=' + encodedValue);
-    }
-    formBody = formBody.join('&');
+  const saveData = () => {
 
-    fetch('https://aboutreact.herokuapp.com/register.php', {
+    fetch('http://192.168.43.236/API/insert.php', {
       method: 'POST',
-      body: formBody,
       headers: {
-        //Header Defination
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        password: userPass,
+        user: userName,
+        address: userAddress,
+      }),
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        //Hide Loader
-        setLoading(false);
-        console.log(responseJson);
-        // If server response message same as Data Matched
-        if (responseJson.status == 1) {
-          setIsRegistraionSuccess(true);
-          console.log('Registration Successful. Please Login to proceed');
-        } else {
-          setErrortext('Registration Unsuccessful');
-        }
+        alert(responseJson);
+        // this.setState({loading: false, disabled: false});
       })
       .catch((error) => {
-        //Hide Loader
-        setLoading(false);
         console.error(error);
+        // this.setState({loading: false, disabled: false});
       });
   };
+
   if (isRegistraionSuccess) {
     return (
       <View
@@ -98,7 +70,7 @@ const RegisterScreen = (props) => {
         }}>
         <Image
           source={require('../Image/success.png')}
-          style={{height: 150, resizeMode: 'contain', alignSelf: 'center'}}
+          style={{ height: 150, resizeMode: 'contain', alignSelf: 'center' }}
         />
         <Text style={styles.successTextStyle}>Registration Successful.</Text>
         <TouchableOpacity
@@ -110,11 +82,12 @@ const RegisterScreen = (props) => {
       </View>
     );
   }
+
   return (
-    <View style={{flex: 1, backgroundColor: '#FFCC00'}}>
+    <View style={{ flex: 1, backgroundColor: '#FFCC00' }}>
       <Loader loading={loading} />
       <ScrollView keyboardShouldPersistTaps="handled">
-        <View style={{alignItems: 'center'}}>
+        <View style={{ alignItems: 'center' }}>
           <Image
             source={require('../Image/aboutreact.png')}
             style={{
@@ -144,20 +117,16 @@ const RegisterScreen = (props) => {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={(UserEmail) => setUserEmail(UserEmail)}
+              onChangeText={(UserPass) => setUserPass(UserPass)}
               underlineColorAndroid="#F6F6F7"
-              placeholder="Enter Email"
+              placeholder="Enter Password"
               placeholderTextColor="#F6F6F7"
-              keyboardType="email-address"
-              ref={(ref) => {
-                this._emailinput = ref;
-              }}
               returnKeyType="next"
               onSubmitEditing={() => this._ageinput && this._ageinput.focus()}
               blurOnSubmit={false}
             />
           </View>
-          <View style={styles.SectionStyle}>
+          {/* <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
               onChangeText={(UserAge) => setUserAge(UserAge)}
@@ -173,7 +142,7 @@ const RegisterScreen = (props) => {
               }
               blurOnSubmit={false}
             />
-          </View>
+          </View> */}
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
@@ -196,14 +165,74 @@ const RegisterScreen = (props) => {
           <TouchableOpacity
             style={styles.buttonStyle}
             activeOpacity={0.5}
-            onPress={handleSubmitButton}>
+            onPress={saveData}>
             <Text style={styles.buttonTextStyle}>REGISTER</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
       </ScrollView>
     </View>
   );
-};
+}
+
+// const handleSubmitButton = () => {
+//   setErrortext('');
+//   if (!userName) {
+//     alert('Please fill Name');
+//     return;
+//   }
+//   if (!userEmail) {
+//     alert('Please fill Email');
+//     return;
+//   }
+//   if (!userAddress) {
+//     alert('Please fill Address');
+//     return;
+//   }
+//   //Show Loader
+//   setLoading(true);
+//   var dataToSend = {
+//     user_name: userName,
+//     user_email: userEmail,
+//     user_age: userAge,
+//     user_address: userAddress,
+//   };
+//   var formBody = [];
+//   for (var key in dataToSend) {
+//     var encodedKey = encodeURIComponent(key);
+//     var encodedValue = encodeURIComponent(dataToSend[key]);
+//     formBody.push(encodedKey + '=' + encodedValue);
+//   }
+//   formBody = formBody.join('&');
+
+//   fetch('https://aboutreact.herokuapp.com/register.php', {
+//     method: 'POST',
+//     body: formBody,
+//     headers: {
+//       //Header Defination
+//       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+//     },
+//   })
+//     .then((response) => response.json())
+//     .then((responseJson) => {
+//       setIsRegistraionSuccess(true);
+//       //Hide Loader
+//       setLoading(false);
+//       console.log(responseJson);
+//       // If server response message same as Data Matched
+//       // if (responseJson.status == 1) {
+//       //   setIsRegistraionSuccess(true);
+//       //   console.log('Registration Successful. Please Login to proceed');
+//       // } else {
+//       //   setErrortext('Registration Unsuccessful');
+//       // }
+//     })
+//     .catch((error) => {
+//       //Hide Loader
+//       setLoading(false);
+//       console.error(error);
+//     });
+// };
+
 export default RegisterScreen;
 
 const styles = StyleSheet.create({

@@ -7,15 +7,30 @@ import {
     ScrollView,
     ImageBackgroundComponent,
     TouchableOpacity,
+    navigation,
 } from 'react-native';
+import { SliderBox } from "react-native-image-slider-box";
 
 const styles = StyleSheet.create({
-    header: {
-        backgroundColor: '#FFCC00',
+    container: {
+        flex: 1,
+        backgroundColor: '#FFFF66',
     },
+    // mainBody: {
+    //   flex: 1,
+    //   justifyContent: 'center',
+    //   backgroundColor: '#FFFF66',
+    // },
+
+
+    // header: {
+    //   backgroundColor: '#FFCC00',
+    //   // backgroundColor: 'red',
+    // },
     headerContent: {
         padding: 30,
         alignItems: 'center',
+        backgroundColor: '#FFFFCC',
     },
     avatar: {
         width: 300,
@@ -29,6 +44,8 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: '#003333',
         fontWeight: '600',
+        alignSelf: 'center',
+        margin: 10,
     },
     bodyContent: {
         flex: 1,
@@ -75,21 +92,34 @@ const styles = StyleSheet.create({
 });
 
 const GarnishScreen = ({ navigation }) => (
-    <ScrollView>
+    this.state = {
+        images: [
+            require('../../Image/Garnish1.jpg'),
+            require('../../Image/Garnish2.jpg'),
+            require('../../Image/Garnish3.jpg')
+        ]
+    },
+    < ScrollView >
         <View style={styles.container}>
+
             <View style={styles.header}>
-                <View style={styles.headerContent}>
-                    <Image
-                        source={require('../../Image/004.jpg')}
-                        style={{
-                            width: 400,
-                            height: 300,
-                            //resizeMode: 'contain',
-                            margin: 0,
-                        }}
+                <View>
+                    <SliderBox
+                        autoplay={true}
+                        images={this.state.images}
                     />
-                    <Text style={styles.name}>ประเภทเนื้อสัตว์</Text>
                 </View>
+                {/* <View style={styles.headerContent}>
+                  <Image
+                    source={require('../../Image/001.jpg')}
+                    style={{
+                      width: 400,
+                      height: 300,
+                      margin: 0,
+                    }}
+                  />
+                </View> */}
+                <Text style={styles.name}>ประเภทเครื่องปรุง</Text>
             </View>
 
 
@@ -165,13 +195,13 @@ const GarnishScreen = ({ navigation }) => (
                             <Text style={styles.info}>พี่จันทร์-ตลาดสดท่าศาลา</Text>
                             <Text style={styles.position}>
                                 (เครื่องปรุง) 8.0 กิโลเมตร จากตำแหน่งของคุณ
-                            </Text>
+                                </Text>
                         </TouchableOpacity>
                     </View>
                 </View>
             </View>
         </View>
-    </ScrollView>
+    </ScrollView >
 
 );
 
